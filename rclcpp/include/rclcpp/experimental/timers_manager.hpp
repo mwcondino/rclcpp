@@ -273,15 +273,6 @@ public:
     }
 
     /**
-     * @brief Returns the size of the heap.
-     * @return the number of valid timers in the heap.
-     */
-    size_t size() const
-    {
-      return weak_heap_.size();
-    }
-
-    /**
      * @brief This function restores the current object as a valid heap
      * and it returns a locked version of it.
      * Timers that went out of scope are removed from the container.
@@ -556,6 +547,7 @@ private:
   std::shared_ptr<rclcpp::Context> context_;
   // Timers heap storage with weak ownership
   WeakTimersHeap weak_timers_heap_;
+  std::vector<std::shared_ptr<rclcpp::TimerBase>> cancelled_timers_;
 };
 
 }  // namespace experimental
