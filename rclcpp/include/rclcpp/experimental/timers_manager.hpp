@@ -547,7 +547,6 @@ private:
   std::shared_ptr<rclcpp::Context> context_;
   // Timers heap storage with weak ownership
   WeakTimersHeap weak_timers_heap_;
-  std::vector<std::shared_ptr<rclcpp::TimerBase>> cancelled_timers_;
 };
 
 }  // namespace experimental
